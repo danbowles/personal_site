@@ -17,7 +17,7 @@ defmodule PersonalSite do
   def index(assigns) do
     ~H"""
     <.layout>
-      <h1>Jason's Personal website!!</h1>
+      <h1>Dan's Personal website!!</h1>
       <h2>Posts!</h2>
       <ul>
         <li :for={post <- @posts}>
@@ -31,6 +31,10 @@ defmodule PersonalSite do
   def layout(assigns) do
     ~H"""
     <html>
+      <head>
+        <link rel="stylesheet" href="/assets/app.css" />
+        <script type="text/javascript" src="/assets/app.js"></script>
+      </head>
       <body>
         {render_slot(@inner_block)}
       </body>

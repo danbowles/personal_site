@@ -4,7 +4,6 @@ defmodule PersonalSite do
   import Phoenix.HTML
 
   @output_dir "./output"
-  File.mkdir_p!(@output_dir)
 
   def post(assigns) do
     ~H"""
@@ -33,13 +32,14 @@ defmodule PersonalSite do
     ~H"""
     <html>
       <body>
-        {render_slot(@inner_block)}/
+        {render_slot(@inner_block)}
       </body>
     </html>
     """
   end
 
   def build() do
+    File.mkdir_p!(@output_dir)
     posts = Blog.all_posts()
     tags = Blog.all_tags()
 

@@ -35,7 +35,7 @@ defmodule PersonalSite do
         <link rel="stylesheet" href="/assets/app.css" />
         <script type="text/javascript" src="/assets/app.js"></script>
       </head>
-      <body>
+      <body class="prose">
         {render_slot(@inner_block)}
       </body>
     </html>

@@ -3,11 +3,6 @@ defmodule PersonalSite.Post do
   defstruct [:id, :author, :title, :body, :description, :tags, :date, :path]
 
   def build(filename, attrs, body) do
-    # IO.inspect(:code.priv_dir(:personal_site))
-    # IO.inspect(Application.app_dir(:personal_site))
-    # IO.inspect(filename)
-
-    # IO.inspect(Path.relative_to(filename, :code.priv_dir(:personal_site)))
     path = Path.relative_to(filename, :code.priv_dir(:personal_site))
     [year, month_day_id] = path |> Path.split() |> Enum.take(-2)
     path = path <> ".html"

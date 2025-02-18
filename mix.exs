@@ -23,6 +23,8 @@ defmodule PersonalSite.MixProject do
   defp deps do
     [
       {:nimble_publisher, "~> 1.0.0"},
+      {:makeup_elixir, ">= 0.0.0"},
+      {:makeup_erlang, ">= 0.0.0"},
       {:phoenix_live_view, "~> 1.0"},
       {:esbuild, "~> 0.9.0"},
       {:tailwind, "~> 0.2.4"}

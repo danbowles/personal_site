@@ -1,9 +1,16 @@
 defmodule PersonalSite do
+  # alias PersonalSite.Components
   alias PersonalSite.Blog
   use Phoenix.Component
   import Phoenix.HTML
 
   @output_dir "./output"
+
+  def anchor_button(assigns) do
+    ~H"""
+    <a class="inline-flex bg-gradient-to-r from-slate-600 to-slate-800 text-white font-semibold rounded-full px-4 py-2" href={@href} target="_blank">{@text}</a>
+    """
+  end
 
   def head(assigns) do
     ~H"""
@@ -24,6 +31,12 @@ defmodule PersonalSite do
       <%!-- <meta property="og:image" content="https://example.com/your-image.jpg"> --%>
       <meta property="og:url" content="https://danbowles.com/">
       <meta property="og:type" content="website">
+      <!-- Favicon & App Icons -->
+      <%!-- <link rel="icon" href="/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="manifest" href="/site.webmanifest"> --%>
+      <!-- Security & Performance -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
     """
   end
@@ -36,6 +49,17 @@ defmodule PersonalSite do
     """
   end
 
+  def section(assigns) do
+    ~H"""
+    <section>
+      <h2 class="text-xl font-bold mb-6">{@title}</h2>
+      <div>
+        {render_slot(@inner_block)}
+      </div>
+    </section>
+    """
+  end
+
   def index(assigns) do
     ~H"""
     <.layout>
@@ -45,7 +69,12 @@ defmodule PersonalSite do
           <a href={post.path}>{ post.title }</a>
         </li>
       </ul> --%>
-      <p class="text-center">🚧 Still some work to be done!</p>
+      <.section title="Experience">
+        <p>Coming soon!</p>
+      </.section>
+      <.section title="Projects">
+        <p>Coming soon!</p>
+      </.section>
     </.layout>
     """
   end
@@ -55,6 +84,7 @@ defmodule PersonalSite do
     <html>
       <.head />
       <body class="font-sans bg-slate-100 text-slate-900">
+        <div class="overflow-clip">
         <div class="max-w-2xl mx-auto">
           <div class="bg-white border-x-2 border-slate-200 w-full">
             <div class="px-16">
@@ -62,21 +92,30 @@ defmodule PersonalSite do
                 <%!-- HEADER --%>
                 <header class="text-center pt-14">
                   <%!-- Intro --%>
-                  <div class="mb-10">
+                  <div class="mb-12">
                     <img class="rounded-full mb-4 inline-flex" src="/assets/images/danbowles-square-64.jpg" width="48" height="48" alt="Dan Bowles">
                     <div class="mb-5">
-                      <h1 class="text-xl font-bold mb-1">Dan Bowles</h1>
-                      <p class="text-sm">Engineer of Software, LEGO and puns from Burlington, Vermont</p>
+                      <h1 class="text-2xl font-bold mb-2">Dan Bowles</h1>
+                      <p>
+                        Software Engineer and LEGO fan from Vermont 🇺🇸
+                      </p>
                     </div>
-                    <a class="inline-flex bg-slate-800 text-slate-50 rounded-full px-4 py-2" href="https://linkedin.com/in/danpb" target="_blank">Connect With Me</a>
+                    <.anchor_button href="https://linkedin.com/in/danpb" text="Connect With Me"/>
+                  </div>
+                  <%!-- Images --%>
+                  <div class="gap-4 justify-center flex">
+                    <%= for i <- 1..3 do %>
+                      <img class="rounded-lg odd:rotate-[-3deg] even:rotate-[3deg] shadow-lg" src={"/assets/images/header_#{i}_sm.jpg"} width="240" height="160" alt="Dan Bowles">
+                    <% end %>
                   </div>
                 </header>
-                <main class="py-8">
+                <main class="py-12 space-y-16">
                   {render_slot(@inner_block)}
                 </main>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </body>
     </html>

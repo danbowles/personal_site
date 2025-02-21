@@ -104,13 +104,7 @@ defmodule PersonalSite do
                   <%!-- Images --%>
                   <div class="gap-4 justify-center flex">
                     <%= for i <- 1..3 do %>
-                      <img
-                        class="shadow-lg rounded-lg odd:-rotate-3 even:rotate-3"
-                        src={"/assets/images/header_#{i}_sm.jpg"}
-                        width="240"
-                        height="160"
-                        alt="Dan Bowles"
-                      />
+                      <img class="shadow-lg rounded-lg odd:-rotate-3 even:rotate-3" src={"/assets/images/header_#{i}_sm.jpg"} width="240" height="160" alt="Dan Bowles" />
                     <% end %>
                   </div>
                 </header>

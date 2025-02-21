@@ -24,7 +24,6 @@ defmodule PersonalSite do
       <script type="text/javascript" src="/assets/app.js"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
       <!-- Open Graph (for social sharing) -->
       <meta property="og:title" content="The Personal Website of Dan Bowles">
       <meta property="og:description" content="A mix of content, ramblings and thoughts from Dan Bowles">
@@ -105,7 +104,13 @@ defmodule PersonalSite do
                   <%!-- Images --%>
                   <div class="gap-4 justify-center flex">
                     <%= for i <- 1..3 do %>
-                      <img class="rounded-lg odd:rotate-[-3deg] even:rotate-[3deg] shadow-lg" src={"/assets/images/header_#{i}_sm.jpg"} width="240" height="160" alt="Dan Bowles">
+                      <img
+                        class="shadow-lg rounded-lg odd:-rotate-3 even:rotate-3"
+                        src={"/assets/images/header_#{i}_sm.jpg"}
+                        width="240"
+                        height="160"
+                        alt="Dan Bowles"
+                      />
                     <% end %>
                   </div>
                 </header>

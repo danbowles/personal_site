@@ -16,7 +16,7 @@ defmodule PersonalSite do
   def head(assigns) do
     ~H"""
     <head>
-      <title>Dan's Personal Website</title>
+      <title>Hi there; I'm Dan</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="The Personal Website of Dan Bowles">

@@ -1,21 +1,33 @@
-# PersonalSite
+# Personal / CV Site
+Just your run-of-the-mill static site hosted on Github Pages.  This particular site was build with [Elixir](https://elixir-lang.org/) and [Phoenix](https://phoenixframework.org/).
 
-**TODO: Add description**
+The design was heavily inspired by Devfolio by [Cruip](https://cruip.com/).
 
-## Installation
+As for the structure of this project, credit there goes to an article by [Jason at Fly.io](https://fly.io/phoenix-files/crafting-your-own-static-site-generator-using-phoenix/)
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `personal_site` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:personal_site, "~> 0.1.0"}
-  ]
-end
+## Setup
+Clone this repo and get deps via Mix
+```bash
+git clone <...>
+mix deps.get
+```
+### Build the site
+```bash
+mix site.build
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/personal_site>.
+### Host it with Python
+```bash
+cd output
+python3 -m http.server 9000
+```
+
+## Deploying to Github Pages
+Commit your changes, push up to `main` and run
+```bash
+bash deploy.sh
+```
+
+🤔 I am unsure who this README is for as this is my own site. Maybe it is for Six-Months-From-Now Me 😂
+
 
